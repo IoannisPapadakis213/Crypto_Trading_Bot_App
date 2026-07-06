@@ -15,16 +15,16 @@ updated as it grows. Where things stand right now:
 
 | Piece | Status |
 |---|---|
-| Strategy engine (MA crossover, RSI, Bollinger Bands) | ✅ Implemented |
-| Broker execution simulation (fees/slippage/ledger) | ✅ Implemented |
-| Risk manager (position sizing, stop-loss, drawdown halt) | ✅ Implemented |
-| Historical data loader (Kraken via `ccxt`, Parquet cache) | ✅ Implemented |
-| Backtesting engine + metrics (Sharpe, drawdown, win rate, ...) | 🚧 In progress |
-| Dashboard UI (candlestick chart, portfolio, live signal feed) | ✅ Implemented — currently running on a **mock data simulator**, not connected to the backend yet |
-| Real backend API + WebSocket streaming | ⏳ Not started |
-| Live paper-trading loop against real market data | ⏳ Not started |
-| Persistence (Postgres) | ⏳ Not started |
-| Multi-user accounts / billing (future SaaS) | ⏳ Not started, intentionally deferred |
+| Strategy engine (MA crossover, RSI, Bollinger Bands) | Implemented |
+| Broker execution simulation (fees/slippage/ledger) | Implemented |
+| Risk manager (position sizing, stop-loss, drawdown halt) | Implemented |
+| Historical data loader (Kraken via `ccxt`, Parquet cache) | Implemented |
+| Backtesting engine + metrics (Sharpe, drawdown, win rate, ...) | In progress |
+| Dashboard UI (candlestick chart, portfolio, live signal feed) | Implemented — currently running on a **mock data simulator**, not connected to the backend yet |
+| Real backend API + WebSocket streaming | Not started |
+| Live paper-trading loop against real market data | Not started |
+| Persistence (Postgres) | Not started |
+| Multi-user accounts / billing (future SaaS) | Not started, intentionally deferred |
 
 In short: the backend has real, working building blocks but nothing runnable
 end-to-end yet, and the dashboard is a fully working visual preview wired to
