@@ -17,6 +17,7 @@ dependencies = [
     "numpy>=2.1",
     "redis>=5.2",
     "python-dotenv>=1.0",
+    "requests>=2.32",
 ]
 
 [project.optional-dependencies]

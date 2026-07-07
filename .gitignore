@@ -25,3 +25,7 @@ frontend/dist/
 # OS / editor
 .DS_Store
 *.log
+
+# Local screenshots
+Capture.PNG
+Capture2.PNG
