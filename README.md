@@ -5,6 +5,8 @@ piece: pluggable trading strategies, a realistic paper-trading and backtesting
 engine, and a real-time dashboard — with a clear path toward a real
 multi-tenant SaaS product later.
 
+**Live demo:** [crypto-trading-bot-app.vercel.app](https://crypto-trading-bot-app.vercel.app/)
+
 > **This is paper trading only. Nothing here executes real trades, and
 > nothing in this repo is financial advice.**
 
