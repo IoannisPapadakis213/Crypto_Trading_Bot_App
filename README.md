@@ -112,3 +112,51 @@ no CLI or API entry point yet — that lands with the backtesting engine.
 5. Polish, docs, CI, one-command `docker compose up` demo
 6. **Future**: real user accounts, Stripe billing, multi-tenant SaaS
    conversion
+
+## Συνοπτική περιγραφή - Τι έχουμε χτίσει μέχρι τώρα (Ελληνικά)
+
+Ακολουθεί αναλυτική περίληψη των κύριων κομματιών του project και της
+τρέχουσας κατάστασής τους:
+
+- **Backend (Python)**: Υπάρχει το πακέτο `app/` με δομή για το backend.
+  - `app/strategies/`: διεπαφή `Strategy` και υλοποιήσεις — MA crossover,
+    RSI, Bollinger Bands.
+  - `app/engine/`: `broker.py` (προσομοιωμένα fills, fees, slippage),
+    `risk_manager.py` (position sizing, stop-loss, drawdown halt),
+    `runner.py` για το loop της στρατηγικής.
+  - `app/data/`: ιστορικοί φορτωτές (Kraken μέσω `ccxt`) και cache σε
+    Parquet μέσω `pyarrow`/`pandas`.
+  - `backtest/`: backtesting engine και μετρικές (Sharpe, drawdown,
+    win rate) — σε πρόοδο.
+  - Στόχοι infra: Postgres persistence, Redis event bus, FastAPI WebSocket
+    API (προγραμματισμένα).
+
+- **Dependencies / metadata**: Το backend είναι σε `pyproject.toml` —
+  Python >=3.12, εξαρτήσεις όπως `fastapi`, `sqlalchemy[asyncio]`,
+  `ccxt`, `pandas`, `pyarrow`, και άλλα εργαλεία για backtesting και
+  ανάπτυξη (`pytest`, `ruff`, `mypy` ως dev extras).
+
+- **Frontend (Next.js)**: Υπάρχει πλήρης dashboard UI στο `frontend/`:
+  - Next.js (App Router), TypeScript, Tailwind CSS.
+  - Στοιχεία UI: `CandlestickChart`, `EquityCurve`, `PortfolioCard`,
+    `SignalFeed`, `StrategyConfigPanel` κ.ά.
+  - Υπάρχει `lib/mock-market-engine.ts` που τρέχει τον UI demo με
+    mock δεδομένα (η παραγωγή τωρινά δεν είναι συνδεδεμένη με το backend).
+  - `package.json` καθορίζει `next@16`, `react@19`, `lightweight-charts` κ.λπ.
+
+- **Τρέχουσα λειτουργικότητα**:
+  - Οι βασικές building blocks για strategies, broker, risk manager είναι
+    υλοποιημένες και μονάδες/λογική μπορούν να τρέξουν σε tests.
+  - Το frontend είναι λειτουργικό ως mock demo (τοπικά: `npm run dev`).
+  - Δεν υπάρχει ακόμα πλήρης, συνδεδεμένο API / WebSocket που να τροφοδοτεί
+    το dashboard με πραγµατικά backend δεδομένα.
+
+- **Τι να περιμένεις μετά**:
+  - Ολοκλήρωση του backtesting CLI/engine και σύνδεση με ιστορικά
+    δεδομένα Kraken.
+  - Persistence σε Postgres και live paper-trading loop.
+  - FastAPI + WebSocket API για να αντικαταστήσει το mock data του UI.
+
+Αν θέλεις, μπορώ να μεταφράσω ολόκληρο το README στα Ελληνικά ή να
+επεκτείνω οποιοδήποτε από τα παραπάνω σημεία με επιπλέον τεχνικές
+λεπτομέρειες ή παραδείγματα κώδικα.

@@ -18,6 +18,13 @@ dependencies = [
     "redis>=5.2",
     "python-dotenv>=1.0",
     "requests>=2.32",
+    # Pinned defensively (unlike the rest of this list): the original pandas-ta
+    # PyPI package was hijacked in Sept 2025 (release history wiped, new
+    # maintainer, new hard numba dependency). pandas-ta-classic is the
+    # community continuation of the pre-hijack codebase.
+    "pandas-ta-classic>=0.6.52,<0.7",
+    "apscheduler>=3.10",
+    "aiosqlite>=0.20",
 ]
 
 [project.optional-dependencies]
